@@ -1,0 +1,14 @@
+{
+  "name": "vanilla",
+  "version": "1.0.0",
+  "description": "A rule based bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xregexp": "3.1.1"
+  }
+}
