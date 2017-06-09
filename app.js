@@ -26,7 +26,7 @@ rl.on('line', reply => {
 				process.exit(0);
 				break;	
 			case 'currentWeather':
-				console.log(`let me check...`);
+				console.log("Alrighty! let me check...");
 				// get weather data from an API
 				weather(data.entities.city, 'current')
 					.then(response => {
