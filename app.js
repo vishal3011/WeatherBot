@@ -32,6 +32,7 @@ rl.on('line', reply => {
 					.then(response => {
 						let parseResult = currentWeather(response);
 						console.log(parseResult);
+						console.log("Have a nice day!!");
 						rl.prompt();
 					})	
 					.catch(error => {
@@ -48,6 +49,7 @@ rl.on('line', reply => {
 					.then(response => {
 						let parseResult = forecastWeather(response, data.entities);
 						console.log(parseResult);
+						console.log("Have a nice day!!");
 						rl.prompt();
 					})	
 					.catch(error => {
