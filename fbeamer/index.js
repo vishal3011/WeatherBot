@@ -19,7 +19,7 @@ class FBeamer {
 
 		let {mode, verify_token, challenge} = req.query.hub;
 
-		if(mode === 'subscribe' && verify_token === this.VERIFY_TOKEN) {
+		if(mode == 'subscribe' && verify_token == this.VERIFY_TOKEN) {
 			return res.end(challenge);
 		} else {
 			console.log("Couldn't register");
