@@ -15,9 +15,9 @@ const config = require('./config');
 const FBeamer = require('./fbeamer');
 const f = new FBeamer(config);
 
-//Test
+//Register wenhooks 
 server.get('/', (req,res,next) => {
-	res.send("Hello!");
+	f.registerHook(req, res);
 	return next();
 });
 

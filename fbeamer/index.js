@@ -14,6 +14,18 @@ class FBeamer {
 			console.log(e);
 		}
 	}
+
+	registerHook(req, res) {
+
+		let {mode, verify_token, challenge} = req.query.hub;
+
+		if(mode === 'subscribe' && verify_token === this.VERIFY_TOKEN) {
+			return res.end(challenge);
+		} else {
+			console.log("Couldn't register");
+			return res.status(403).end();
+		}
+	}
 }
 
 module.exports = FBeamer;
