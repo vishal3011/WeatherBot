@@ -26,6 +26,24 @@ class FBeamer {
 			return res.status(403).end();
 		}
 	}
+
+	incoming(req, res, cb) {
+		let data = req.body;
+		if(data.object === 'page') {
+			data.entry.forEach( pageObj => {
+				pageObj.messaging.forEach(msgEvent => {
+					let messageObj = {
+						sender: msgEvent.sender.id,
+						timeOfMessage: msgEvent.timestamp,
+						message: msgEvent.message
+					} 
+					cb(messageObj);
+
+				});
+			});
+		}
+		res.send(200);
+	}
 }
 
 module.exports = FBeamer;

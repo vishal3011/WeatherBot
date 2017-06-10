@@ -7,6 +7,9 @@ const server = Restify.createServer({
 
 const PORT = process.env.PORT || 3000;
 
+server.use(Restify.jsonp());
+server.use(Restify.bodyParser());
+
 //Tokens
 const config = require('./config');
 
@@ -20,5 +23,15 @@ server.get('/', (req,res,next) => {
 	f.registerHook(req, res);
 	return next();
 });
+
+// Receive incoming messages
+
+server.post('/', (req,res,next) => {
+	f.incoming(req, res, msg => {
+		console.log(msg); 
+	});
+	return next();
+});
+
 
 server.listen(PORT, () => console.log(`Messenger running on port ${PORT}`));
